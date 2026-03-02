@@ -102,11 +102,7 @@ This installs all required dependencies listed in `package.json`.
 npm run dev
 ```
 
-The application will run at:
 
-```
-http://localhost:3000
-```
 
 ---
 
