@@ -5,12 +5,7 @@
   </p>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-18-blue?logo=react" />
-  <img src="https://img.shields.io/badge/Node.js-18-green?logo=node.js" />
-  <img src="https://img.shields.io/badge/Status-Active-success" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow" />
-</p>
+
 
 ---
 
@@ -104,7 +99,7 @@ This installs all required dependencies listed in `package.json`.
 ## ▶️ 4️⃣ Start Development Server
 
 ```bash
-npm start
+npm run dev
 ```
 
 The application will run at:
