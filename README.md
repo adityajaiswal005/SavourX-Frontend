@@ -1,16 +1,129 @@
-# React + Vite
+<p align="center">
+  <h1 align="center">🍽️ SavourX</h1>
+  <p align="center">
+    A Modern & Responsive Food Discovery Frontend Application
+  </p>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-blue?logo=react" />
+  <img src="https://img.shields.io/badge/Node.js-18-green?logo=node.js" />
+  <img src="https://img.shields.io/badge/Status-Active-success" />
+  <img src="https://img.shields.io/badge/License-MIT-yellow" />
+</p>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Overview
 
-## React Compiler
+**SavourX** is a modern and responsive food discovery web application frontend.  
+It provides users with a smooth, interactive, and visually appealing experience to explore food items and related content.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+This project demonstrates:
+- Clean UI/UX Design
+- Scalable Component Architecture
+- Proper Project Structuring
+- Git Best Practices
+- Production-ready Frontend Setup
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+- ✅ Fully Responsive Design
+- ✅ Modern UI
+- ✅ Clean Component Structure
+- ✅ Fast Rendering
+- ✅ Organized Folder Structure
+- ✅ Optimized Production Build
+
+---
+
+## 🛠️ Tech Stack
+
+- ⚛️ React.js
+- 🎨 CSS3 / Tailwind CSS (Modify if needed)
+- 📦 Node.js
+- 📂 npm (Node Package Manager)
+- 🌐 REST API Integration (if connected to backend)
+
+---
+
+## 📂 Project Structure
+
+```bash
+SavourX-Frontend/
+│
+├── public/              # Static files
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── pages/           # Application pages
+│   ├── assets/          # Images & static assets
+│   ├── styles/          # Styling files (if applicable)
+│   └── App.js           # Root component
+│
+├── package.json         # Project metadata & dependencies
+├── .gitignore           # Ignored files
+└── README.md            # Project documentation
+```
+
+---
+
+# 🧑‍💻 Getting Started
+
+Follow these instructions to set up the project locally.
+
+---
+
+## 📥 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/adityajaiswal005/SavourX-Frontend.git
+```
+
+---
+
+## 📁 2️⃣ Navigate to Project Directory
+
+```bash
+cd SavourX-Frontend
+```
+
+---
+
+## 📦 3️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+This installs all required dependencies listed in `package.json`.
+
+---
+
+## ▶️ 4️⃣ Start Development Server
+
+```bash
+npm start
+```
+
+The application will run at:
+
+```
+http://localhost:3000
+```
+
+---
+
+# 🏗️ Production Build
+
+To create an optimized production build:
+
+```bash
+npm run build
+```
+
+The optimized files will be generated inside the `build/` directory.
+
+---
+
