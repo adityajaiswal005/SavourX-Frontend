@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-16">
           <div className="col-span-1 md:col-span-1">
-            <div className="font-playfair text-[2rem] text-white mb-4">Yum<span className="text-primary">Sphere</span></div>
+            <div className="font-playfair text-[2rem] text-white mb-4">Sav<span className="text-primary">ourX</span></div>
             <p className="text-white/60 leading-[1.8] mb-6">
               Experience the art of fine dining at YumSphere. 
               We serve delicious meals crafted with passion and the finest ingredients.

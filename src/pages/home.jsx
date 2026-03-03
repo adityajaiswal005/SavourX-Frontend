@@ -12,20 +12,40 @@ import Footer from '../components/Footer'
 const Home = () => {
   return (
     <>
-      <Navbar/>
-      <div className="mb-16 md:mb-24 lg:mb-32"></div>
-      <HeroSection/>
-      <div className="mb-16 md:mb-24 lg:mb-32"></div>
-      <About/>
-      <div className="mb-16 md:mb-24 lg:mb-32"></div>
-      <Qualities/>
-      <div className="mb-16 md:mb-24 lg:mb-32"></div>
-      <Menu/>
-      <div className="mb-16 md:mb-24 lg:mb-32"></div>
-      <WhoAreWe/>
-      <div className="mb-16 md:mb-24 lg:mb-32"></div>
-      <Reservation/>
-      <Footer/>
+      <Navbar />
+      <HeroSection />
+      
+      <section className="py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <About />
+        </div>
+      </section>
+      
+      <section className="py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <Qualities />
+        </div>
+      </section>
+      
+      <section className="py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <Menu />
+        </div>
+      </section>
+      
+      <section className="py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <WhoAreWe />
+        </div>
+      </section>
+      
+      <section className="py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <Reservation />
+        </div>
+      </section>
+      
+      <Footer />
     </>
   )
 }

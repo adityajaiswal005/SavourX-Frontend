@@ -3,7 +3,7 @@ import data from '../restApi.json';
 
 const WhoAreWe = () => {
   return (
-    <section id="who_are_we" className='py-20 md:py-32 px-[5%] bg-dark relative'>
+    <section id="who_are_we" className='py-24 md:py-32 px-[5%] bg-dark relative'>
       <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,107,53,0.1),transparent_50%),radial-gradient(circle_at_70%_50%,rgba(233,69,96,0.1),transparent_50%)] pointer-events-none"></div>
       <div className="max-w-[1200px] mx-auto flex flex-col items-center gap-12 md:gap-16 relative z-10">
         {/* Stats Grid */}

@@ -41,103 +41,110 @@ const Reservation = () => {
   };
 
   return (
-    <section id="reservation" className="py-20 md:py-32 px-[5%] bg-dark relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute top-0 left-0 right-0 bottom-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2760%27%20height%3D%2760%27%20viewBox%3D%270%200%2060%2060%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%3Cg%20fill%3D%27none%27%20fill-rule%3D%27evenodd%27%3E%3Cg%20fill%3D%27%23ffffff%27%20fill-opacity%3D%270.02%27%3E%3Cpath%20d%3D%27M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] pointer-events-none"></div>
+    <section id="reservation" className="py-24 md:py-32 px-6 bg-dark dark:bg-dark relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,107,53,0.1),transparent_50%)] pointer-events-none"></div>
       
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center relative z-10">
-        {/* Left Image */}
-        <div className="relative order-2 md:order-1">
-          <img 
-            src="/reservation.png" 
-            alt="Reservation" 
-            className="w-full rounded-[16px] md:rounded-[20px]" 
-          />
-          <div className="absolute top-[-15px] left-[-15px] right-[15px] bottom-[15px] border-[3px] border-primary rounded-[16px] md:rounded-[20px] -z-10"></div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-12">
+          <span className="inline-block text-primary font-semibold tracking-[2px] uppercase text-xs mb-3 px-4 py-2 bg-primary/10 rounded-full">Reservations</span>
+          <h2 className="font-playfair text-[2rem] md:text-[2.5rem] text-white">Book Your Table</h2>
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          {/* Left Side - Reservation Form */}
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8">
+            <h3 className="font-playfair text-xl text-dark mb-1">Make a Reservation</h3>
+            <p className="text-gray-500 text-sm mb-6">Reserve your spot for dining</p>
+            
+            <form onSubmit={handleReservation} className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-dark text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-dark text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    required
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-dark text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all dark:[color-scheme:dark]"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="time"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                    required
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-dark text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all dark:[color-scheme:dark]"
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-dark text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-dark text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all"
+                  />
+                </div>
+              </div>
+              
+              <button 
+                type="submit" 
+                className="w-full py-3.5 bg-gradient-to-r from-primary to-accent border-none rounded-xl text-white font-medium cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-orange-500/40"
+              >
+                Reserve Now <HiOutlineArrowNarrowRight />
+              </button>
+            </form>
+          </div>
         
-        {/* Right Form */}
-        <div className="bg-white/[0.03] border border-white/[0.1] rounded-[20px] md:rounded-[30px] p-6 md:p-10 order-1 md:order-2">
-          <h1 className="font-playfair text-[1.8rem] md:text-[2.5rem] text-white mb-2 text-center md:text-left">Book a Table</h1>
-          <p className="text-white/60 mb-6 md:mb-8 text-center md:text-left">Reserve your spot for an unforgettable dining experience</p>
-          
-          <form onSubmit={handleReservation}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-4 md:mb-6">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  required
-                  className="w-full p-3 md:p-4 bg-white/[0.05] border border-white/[0.1] rounded-[10px] md:rounded-[12px] text-white text-sm md:text-base transition-all duration-300 placeholder-white/40 focus:outline-none focus:border-primary focus:bg-primary/5"
-                />
-              </div>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  required
-                  className="w-full p-3 md:p-4 bg-white/[0.05] border border-white/[0.1] rounded-[10px] md:rounded-[12px] text-white text-sm md:text-base transition-all duration-300 placeholder-white/40 focus:outline-none focus:border-primary focus:bg-primary/5"
-                />
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-4 md:mb-6">
-              <div className="relative">
-                <input
-                  type="date"
-                  placeholder="Date"
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  required
-                  className="w-full p-3 md:p-4 bg-white/[0.05] border border-white/[0.1] rounded-[10px] md:rounded-[12px] text-white text-sm md:text-base transition-all duration-300 placeholder-white/40 focus:outline-none focus:border-primary focus:bg-primary/5 dark:[color-scheme:dark]"
-                />
-              </div>
-              <div className="relative">
-                <input
-                  type="time"
-                  placeholder="Time"
-                  value={time}
-                  onChange={(e) => setTime(e.target.value)}
-                  required
-                  className="w-full p-3 md:p-4 bg-white/[0.05] border border-white/[0.1] rounded-[10px] md:rounded-[12px] text-white text-sm md:text-base transition-all duration-300 placeholder-white/40 focus:outline-none focus:border-primary focus:bg-primary/5 dark:[color-scheme:dark]"
-                />
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-4 md:mb-6">
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="w-full p-3 md:p-4 bg-white/[0.05] border border-white/[0.1] rounded-[10px] md:rounded-[12px] text-white text-sm md:text-base transition-all duration-300 placeholder-white/40 focus:outline-none focus:border-primary focus:bg-primary/5"
-                />
-              </div>
-              <div className="relative">
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                  className="w-full p-3 md:p-4 bg-white/[0.05] border border-white/[0.1] rounded-[10px] md:rounded-[12px] text-white text-sm md:text-base transition-all duration-300 placeholder-white/40 focus:outline-none focus:border-primary focus:bg-primary/5"
-                />
-              </div>
-            </div>
-            
-            <button 
-              type="submit" 
-              className="w-full py-4 md:py-5 bg-gradient-to-r from-primary to-accent border-none rounded-[10px] md:rounded-[12px] text-white text-base md:text-[1.1rem] font-semibold cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 mt-4 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(255,107,53,0.4)]"
+          {/* Right Side - Image with Glow Effect */}
+          <div className="relative">
+            <div 
+              className="rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(249,115,22,0.6)] hover:scale-105 transition duration-500"
             >
-              Reserve Now <HiOutlineArrowNarrowRight />
-            </button>
-          </form>
+              <img 
+                src="/reservation.png" 
+                alt="Restaurant Reservation" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

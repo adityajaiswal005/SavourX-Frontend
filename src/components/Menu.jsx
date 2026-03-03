@@ -55,7 +55,7 @@ const Menu = () => {
   };
 
   return (
-    <section id="menu" className='py-20 md:py-32 px-[5%] bg-secondary relative overflow-hidden'>
+    <section id="menu" className='py-24 md:py-32 px-[5%] bg-secondary relative overflow-hidden border-t border-gray-800/30'>
       {/* Background decoration */}
       <div className="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[radial-gradient(circle,rgba(255,107,53,0.15),transparent_70%)] pointer-events-none"></div>
       <div className="absolute bottom-[-100px] left-[-100px] w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-[radial-gradient(circle,rgba(233,69,96,0.1),transparent_70%)] pointer-events-none"></div>
@@ -150,67 +150,71 @@ const Menu = () => {
           </p>
         </div>
 
-        {/* Dishes Grid */}
+        {/* Dishes Grid - Flip Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
           {filteredDishes.length > 0 ? (
-            filteredDishes.map((element, index) => {
+            filteredDishes.map((element) => {
               const spiceInfo = getSpiceInfo(element.spiceLevel);
               return (
                 <div 
-                  className="bg-white/[0.03] border border-white/[0.05] rounded-[20px] overflow-hidden transition-all duration-400 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-primary/30 group"
+                  className="flip-card group"
                   key={element.id}
-                  style={{ animationDelay: `${index * 0.05}s` }}
                 >
-                  {/* Image Container */}
-                  <div className="relative h-[180px] md:h-[200px] overflow-hidden">
-                    <img 
-                      src={element.image} 
-                      alt={element.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent"></div>
+                  <div className="flip-card-inner">
                     
-                    {/* Category Badge */}
-                    <span className="absolute top-3 left-3 bg-gradient-to-r from-primary to-accent text-white px-3 py-1 rounded-full text-[0.7rem] font-semibold z-10 uppercase tracking-wide">
-                      {element.category}
-                    </span>
-
-                    {/* Cuisine Badge */}
-                    <span className="absolute top-3 right-3 bg-white/10 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full text-[0.65rem] font-medium z-10">
-                      {element.cuisine}
-                    </span>
-
-                    {/* Price Badge */}
-                    <div className="absolute bottom-3 right-3 bg-dark/80 backdrop-blur-sm px-3 py-1.5 rounded-full z-10">
-                      <span className="text-white font-bold">${element.price}</span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-4">
-                    <h3 className="text-white text-base md:text-[1.1rem] mb-2 font-semibold group-hover:text-primary transition-colors duration-300 line-clamp-1">
-                      {element.title}
-                    </h3>
-                    <p className="text-white/50 text-sm mb-3 line-clamp-2">
-                      {element.description}
-                    </p>
-                    
-                    {/* Spice Level & Add to Cart */}
-                    <div className="flex items-center justify-between">
-                      <div 
-                        className="flex items-center gap-1"
-                        style={{ border: `1px solid ${spiceInfo.color}`, backgroundColor: `${spiceInfo.color}20`, padding: '2px 8px', borderRadius: '12px' }}
-                      >
-                        <span style={{ color: spiceInfo.color }} className="text-xs">{spiceInfo.icon}</span>
-                        <span className="text-xs font-medium" style={{ color: spiceInfo.color }}>
-                          {element.spiceLevel}
+                    {/* Front Side */}
+                    <div className="flip-card-front bg-white/[0.03] border border-white/[0.05] rounded-[20px] overflow-hidden">
+                      {/* Image Container */}
+                      <div className="relative h-[180px] md:h-[200px] overflow-hidden">
+                        <img 
+                          src={element.image} 
+                          alt={element.title} 
+                          className="w-full h-full object-cover" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent"></div>
+                        
+                        {/* Category Badge */}
+                        <span className="absolute top-3 left-3 bg-gradient-to-r from-primary to-accent text-white px-3 py-1 rounded-full text-[0.7rem] font-semibold z-10 uppercase tracking-wide">
+                          {element.category}
                         </span>
+
+                        {/* Cuisine Badge */}
+                        <span className="absolute top-3 right-3 bg-white/10 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full text-[0.65rem] font-medium z-10">
+                          {element.cuisine}
+                        </span>
+
+                        {/* Price Badge */}
+                        <div className="absolute bottom-3 right-3 bg-dark/80 backdrop-blur-sm px-3 py-1.5 rounded-full z-10">
+                          <span className="text-white font-bold">${element.price}</span>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-4">
+                        <h3 className="text-white text-base md:text-[1.1rem] mb-2 font-semibold line-clamp-1">
+                          {element.title}
+                        </h3>
+                        <p className="text-white/50 text-sm line-clamp-2">
+                          {element.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Back Side - Flip Content */}
+                    <div className="flip-card-back bg-gradient-to-br from-primary/20 to-accent/20 border border-white/[0.1] rounded-[20px] overflow-hidden flex flex-col justify-center items-center p-6">
+                      <h3 className="text-white text-xl font-semibold mb-3 text-center">{element.title}</h3>
+                      <p className="text-white/70 text-sm mb-4 text-center leading-relaxed">
+                        {element.description}
+                      </p>
+                      <div className="flex items-center gap-2 mb-4">
+                        <span style={{ color: spiceInfo.color }}>{spiceInfo.icon}</span>
+                        <span className="text-white/80 text-sm">{element.spiceLevel} Spice</span>
                       </div>
                       <button 
                         onClick={() => handleAddToCart(element)}
-                        className="px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-primary to-accent text-white font-medium rounded-full text-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
+                        className="px-6 py-2 bg-gradient-to-r from-primary to-accent text-white font-medium rounded-full text-sm cursor-pointer"
                       >
-                        Add
+                        Add to Cart
                       </button>
                     </div>
                   </div>

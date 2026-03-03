@@ -4,7 +4,7 @@ import { GiCookingPot, GiHotMeal, GiDeliveryDrone } from 'react-icons/gi';
 
 const Qualities = () => {
   return (
-    <section id="qualities" className='py-20 md:py-32 px-[5%] bg-dark relative'>
+    <section id="qualities" className='py-24 md:py-32 px-[5%] bg-dark relative mb-24 md:mb-28'>
       <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,107,53,0.05),transparent_70%)] pointer-events-none"></div>
       <div className="max-w-[1400px] mx-auto relative z-10">
         {/* Header */}
@@ -24,13 +24,11 @@ const Qualities = () => {
               const icons = [<GiCookingPot />, <GiHotMeal />, <GiDeliveryDrone />];
               return (
                 <div 
-                  className='bg-white/[0.03] border border-white/[0.05] rounded-[20px] p-6 md:p-10 text-center transition-all duration-400 relative overflow-hidden group hover:-translate-y-2 hover:bg-white/[0.05] hover:border-primary/20' 
+                  className='bg-white/[0.03] border border-white/[0.05] rounded-[20px] p-6 md:p-10 text-center relative overflow-hidden' 
                   key={element.id} 
-                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-accent transform scale-x-0 transition-transform duration-400 group-hover:scale-x-100"></div>
-                    <div className="w-[70px] h-[70px] md:w-[90px] md:h-[90px] mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center transition-all duration-400 group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent group-hover:scale-110 group-hover:rotate-[360deg]">
-                        <span className="text-[1.8rem] md:text-[2rem] text-primary group-hover:text-white">{icons[index] || <GiCookingPot />}</span>
+                    <div className="w-[70px] h-[70px] md:w-[90px] md:h-[90px] mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
+                        <span className="text-[1.8rem] md:text-[2rem] text-primary">{icons[index] || <GiCookingPot />}</span>
                     </div>
                     <h3 className="text-white text-[1.2rem] md:text-[1.4rem] mb-3 font-semibold">{element.title}</h3>
                     <p className="text-white/60 leading-[1.7] text-[0.9rem] md:text-[0.95rem]">{element.description}</p>

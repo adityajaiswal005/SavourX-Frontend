@@ -5,7 +5,7 @@ import { GiCook, GiCookingPot, GiHotMeal } from "react-icons/gi";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 md:py-32 px-[5%] bg-dark relative overflow-hidden">
+    <section id="about" className="py-24 md:py-28 px-[5%] bg-dark relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent"></div>
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
