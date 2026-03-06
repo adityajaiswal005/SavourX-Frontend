@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-1">
             <div className="font-playfair text-[2rem] text-white mb-4">Sav<span className="text-primary">ourX</span></div>
             <p className="text-white/60 leading-[1.8] mb-6">
-              Experience the art of fine dining at YumSphere. 
+              Experience the art of fine dining at SavourX. 
               We serve delicious meals crafted with passion and the finest ingredients.
             </p>
             <div className="flex gap-4">
@@ -26,9 +26,7 @@ const Footer = () => {
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-[45px] h-[45px] bg-white/[0.05] rounded-[12px] flex items-center justify-center text-white no-underline transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:-translate-y-1">
                 <FaYoutube />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-[45px] h-[45px] bg-white/[0.05] rounded-[12px] flex items-center justify-center text-white no-underline transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:-translate-y-1">
-                <FaLinkedinIn />
-              </a>
+              
             </div>
           </div>
           <div className="col-span-1">
