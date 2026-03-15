@@ -53,7 +53,7 @@ const Reservation = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Left Side - Reservation Form */}
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8">
-            <h3 className="font-playfair text-xl text-dark mb-1">Make a Reservation</h3>
+            <h3 className="font-playfair text-xl text-white mb-1">Make a Reservation</h3>
             <p className="text-gray-500 text-sm mb-6">Reserve your spot for dining</p>
             
             <form onSubmit={handleReservation} className="space-y-4">

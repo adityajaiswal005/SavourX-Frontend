@@ -79,10 +79,10 @@ const Menu = () => {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
+                className={`px-6 py-3 rounded-full font-semibold uppercase tracking-wide text-base transition-all duration-300 flex items-center justify-center min-h-[48px] ${
                   activeCategory === category 
-                    ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-primary/30' 
-                    : 'bg-white/[0.05] text-white/70 hover:bg-white/[0.1] border border-white/[0.1]'
+                    ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-primary/30 ring-2 ring-primary/30 border-2 border-transparent' 
+                    : 'bg-white/5 text-white/80 hover:bg-white/10 hover:border-primary/40 border border-white/10 hover:scale-[1.02]'
                 }`}
               >
                 {category}

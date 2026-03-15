@@ -8,22 +8,9 @@ const Navbar = () => {
     const [show, setShow] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
     const menuRef = useRef(null);
 
-    useEffect(() => {
-        // Check localStorage or system preference on mount
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            setDarkMode(savedTheme === 'dark');
-            if (savedTheme === 'dark') {
-                document.documentElement.classList.add('dark');
-            }
-        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setDarkMode(true);
-            document.documentElement.classList.add('dark');
-        }
-    }, []);
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -50,17 +37,7 @@ const Navbar = () => {
         };
     }, []);
 
-    const toggleDarkMode = () => {
-        const newMode = !darkMode;
-        setDarkMode(newMode);
-        if (newMode) {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-        }
-    };
+
 
     const closeMenu = () => setShow(false);
 
@@ -101,7 +78,7 @@ const Navbar = () => {
                     {/* Our Menu Button with Sliding Dropdown */}
                     <div className="relative" ref={menuRef}>
                         <button 
-                            className="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-primary to-accent border-none rounded-full text-white font-semibold text-[0.8rem] cursor-pointer transition-all duration-300 uppercase tracking-widest hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,107,53,0.4)]"
+                            className="flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-accent border border-white/20 rounded-full text-white font-semibold text-[0.85rem] leading-tight cursor-pointer transition-all duration-300 uppercase tracking-widest hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(255,107,53,0.5)] hover:border-white/40 min-h-[44px]"
                             onClick={() => setMenuOpen(!menuOpen)}
                         >
                             <FaUtensils />
@@ -134,18 +111,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Dark Mode Toggle */}
-            <button 
-                onClick={toggleDarkMode}
-                className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-all duration-300 hover:scale-110 group"
-                aria-label="Toggle dark mode"
-            >
-                {darkMode ? (
-                    <FaSun className="text-yellow-400 text-lg group-hover:rotate-180 transition-transform duration-500" />
-                ) : (
-                    <FaMoon className="text-white text-lg group-hover:-rotate-45 transition-transform duration-500" />
-                )}
-            </button>
+
 
             {/* Mobile Menu Button */}
             <div 
