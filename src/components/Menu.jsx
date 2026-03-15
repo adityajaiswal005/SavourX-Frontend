@@ -74,20 +74,23 @@ const Menu = () => {
         {/* Filter Section */}
         <div className="mb-10 space-y-5">
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-            {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-6 py-3 rounded-full font-semibold uppercase tracking-wide text-base transition-all duration-300 flex items-center justify-center min-h-[48px] ${
-                  activeCategory === category 
-                    ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-primary/30 ring-2 ring-primary/30 border-2 border-transparent' 
-                    : 'bg-white/5 text-white/80 hover:bg-white/10 hover:border-primary/40 border border-white/10 hover:scale-[1.02]'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4">
+            <span className="text-white/50 text-sm uppercase tracking-wider flex items-center gap-2">
+              <FaUtensils /> Category:
+            </span>
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+              {categories.map(category => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold uppercase tracking-wide text-sm md:text-base transition-all duration-300 flex items-center justify-center min-h-[44px] ${activeCategory === category 
+                    ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-primary/30 ring-2 ring-primary/30 border-2 border-transparent scale-105' 
+                    : 'bg-white/5 text-white/80 hover:bg-white/10 hover:border-primary/40 border border-white/10 hover:scale-[1.02]'}`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Cuisine Filter */}
@@ -143,33 +146,33 @@ const Menu = () => {
         {/* Results count */}
         <div className="text-center mb-8">
           <p className="text-white/50 text-sm">
-            Showing {filteredDishes.length} {filteredDishes.length === 1 ? 'dish' : 'dishes'}
-            {activeCategory !== 'All' && ` in ${activeCategory}`}
-            {activeCuisine !== 'All' && ` with ${activeCuisine} cuisine`}
-            {activeSpice !== 'All' && ` with ${activeSpice} spice`}
+            Showing <span className="font-semibold text-white">{filteredDishes.length}</span> {filteredDishes.length === 1 ? 'dish' : 'dishes'}
+            {activeCategory !== 'All' && ` in <span className="font-semibold">${activeCategory}</span>`}
+            {activeCuisine !== 'All' && ` with <span className="font-semibold">${activeCuisine}</span> cuisine`}
+            {activeSpice !== 'All' && ` with <span className="font-semibold">${activeSpice}</span> spice`}
           </p>
         </div>
 
         {/* Dishes Grid - Flip Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredDishes.length > 0 ? (
             filteredDishes.map((element) => {
               const spiceInfo = getSpiceInfo(element.spiceLevel);
               return (
                 <div 
-                  className="flip-card group"
+                  className="flip-card group h-[320px]"
                   key={element.id}
                 >
                   <div className="flip-card-inner">
                     
                     {/* Front Side */}
-                    <div className="flip-card-front bg-white/[0.03] border border-white/[0.05] rounded-[20px] overflow-hidden">
+                    <div className="flip-card-front bg-white/[0.03] border border-white/[0.05] rounded-[20px] overflow-hidden h-full">
                       {/* Image Container */}
                       <div className="relative h-[180px] md:h-[200px] overflow-hidden">
                         <img 
                           src={element.image} 
                           alt={element.title} 
-                          className="w-full h-full object-cover" 
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent"></div>
                         
@@ -201,9 +204,9 @@ const Menu = () => {
                     </div>
 
                     {/* Back Side - Flip Content */}
-                    <div className="flip-card-back bg-gradient-to-br from-primary/20 to-accent/20 border border-white/[0.1] rounded-[20px] overflow-hidden flex flex-col justify-center items-center p-6">
+                    <div className="flip-card-back bg-gradient-to-br from-primary/20 to-accent/20 border border-white/[0.1] rounded-[20px] overflow-hidden flex flex-col justify-center items-center p-6 h-full">
                       <h3 className="text-white text-xl font-semibold mb-3 text-center">{element.title}</h3>
-                      <p className="text-white/70 text-sm mb-4 text-center leading-relaxed">
+                      <p className="text-white/70 text-sm mb-4 text-center leading-relaxed line-clamp-3">
                         {element.description}
                       </p>
                       <div className="flex items-center gap-2 mb-4">
@@ -212,7 +215,7 @@ const Menu = () => {
                       </div>
                       <button 
                         onClick={() => handleAddToCart(element)}
-                        className="px-6 py-2 bg-gradient-to-r from-primary to-accent text-white font-medium rounded-full text-sm cursor-pointer"
+                        className="px-6 py-2 bg-gradient-to-r from-primary to-accent text-white font-medium rounded-full text-sm cursor-pointer hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
                       >
                         Add to Cart
                       </button>
@@ -241,3 +244,4 @@ const Menu = () => {
 };
 
 export default Menu;
+
